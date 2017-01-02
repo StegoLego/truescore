@@ -3,7 +3,9 @@ $( document ).ready(function() {
 // get two comparisons at page load
  $.get('/nextBattlePairs', function(data){
    $('#divA').append(data[0].name);
+   $('#imgA').attr('src', data[0].imageUrl);
    $('#divB').append(data[1].name);
+   $('#imgB').attr('src', data[1].imageUrl);
  });
 
 
