@@ -181,7 +181,6 @@ app.get('/getRankList', (req, res) => {
 
 
 
-
 //sends back an array of all names
 app.get('/getAllObjectsOfComparison', (req, res) => {
   var arrayOfObjectNames =[];
