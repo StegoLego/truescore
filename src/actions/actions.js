@@ -6,6 +6,7 @@ const ROOT_URL = 'http://localhost:3000/';
 export const FETCH_COMPARISON = 'FETCH_COMPARISON';
 export const FETCH_USERS = 'FETCH_USERS';
 export const SUBMIT_DECISION = 'SUBMIT_DECISION';
+export const FETCH_PROMPT = 'FETCH_PROMPT';
 
 export function fetchComparison () {
   const request = axios.get(`${ROOT_URL}nextBattlePairs`);
@@ -19,14 +20,13 @@ export function fetchComparison () {
 export function fetchUsers () {
 
   /// WARNING CHECK ROUTE WITH BARTEK!!
-  const request = axios.get(`${ROOT_URL}users`); // === localhos3000/users. returns promise with .then property. returns object and must have a type
+  const request = axios.get(`${ROOT_URL}getAllObjectsOfComparison`);
 
   return {
     type: FETCH_USERS,
     payload: request
   }
 }
-
 
 
 
@@ -50,9 +50,11 @@ export function submitDecision(winner) {
 
 }
 
+export function fetchPrompt () {
+  const request = axios.get(`${ROOT_URL}getRankList`);
 
-
-
-
-
-
+  return {
+    type: FETCH_PROMPT,
+    payload: request
+  }
+}

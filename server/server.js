@@ -179,7 +179,6 @@ app.get('/getRankList', (req, res) => {
 
 
 
-
 //sends back an array of all names
 app.get('/getAllObjectsOfComparison', (req, res) => {
   var arrayOfObjectNames =[];
@@ -194,7 +193,7 @@ app.get('/getAllObjectsOfComparison', (req, res) => {
 });
 
 // serve up stats
-app.post('/getStatsForObject', (req, res) => {
+app.get('/getStatsForObject', (req, res) => {
 
   //figure out phone number of request
   ItemOfJudgement.findOne({
@@ -207,7 +206,6 @@ app.post('/getStatsForObject', (req, res) => {
   //tbd
 });
 });
-
 
 // ============ PORT LISTENING  ==============//
 
