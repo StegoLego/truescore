@@ -46,4 +46,4 @@ function mapStateToProps (state) {
   return {comparison: state.comparison};
 }
 
-export default connect(mapStateToProps, { fetchChoices })(CompareChoices);
+export default connect(mapStateToProps, { fetchComparison })(CompareChoices);
