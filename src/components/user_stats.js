@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
+import StatsListItem from './stats_list_item.js';
+import UserList from './user_list.js';
 
-class UserStats extends Component {
-  render() {
-    return (
-      <dl>
-        <dt>Users Stats</dt>
-        <dd className="percentage percentage-75">
-          <span className="text">
-            Cheese Steak: 75%
-          </span>
-        </dd>
-        <dd className="percentage percentage-25">
-          <span className="text">
-            Ice Cream: 25%
-          </span>
-        </dd>
-        <dd className="percentage percentage-1">
-          <span className="text">
-            Fries: 1%
-          </span>
-        </dd>
-      </dl>
-    );
-  }
+const UserStats = ({props}) => {
+  console.log('HERE\'s props for USERSTATS: ', props);
+  return (
+    <div>
+      <h3>MUST NOT BE HARD CODED</h3>
+      <div>
+        <StatsListItem />
+      </div>
+      <div>
+        <UserList />
+      </div>
+    </div>
+  );
 };
 
 export default UserStats;

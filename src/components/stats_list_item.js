@@ -1,14 +1,13 @@
 import React from 'react';
 
-const StatsListItem = ({video}) => {
-  const imageUrl = video.imageUrl;
+const StatsListItem = (props) => {
+  console.log("HERE'S STATSLIST props: ", props);
   return (
     <dl>
-      <dt>{video.name}</dt>
-      <dd className="media-left">
-        <img className="media-object" src={imageUrl} />
+      <dt>{props.prompt}</dt>
+      <dd className="percentage">
         <span className="text">
-          {video.wins / video.losses}
+          {props.wins / (props.wins + props.losses)}
         </span>
       </dd>
     </dl>

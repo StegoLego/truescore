@@ -15,7 +15,7 @@ class CompareChoices extends Component {
     return this.props.comparison.choices.map(choice => {
       console.log("current choice is ", choice);
       return (
-        <Choice
+        <Choice 
           name={choice.name}
           imageUrl={choice.imageUrl}
           key={choice.name} />
@@ -46,4 +46,4 @@ function mapStateToProps (state) {
   return {comparison: state.comparison};
 }
 
-export default connect(mapStateToProps, { fetchComparison })(CompareChoices);
+export default connect(mapStateToProps, { fetchChoices })(CompareChoices);
