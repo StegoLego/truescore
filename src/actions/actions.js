@@ -51,7 +51,7 @@ export function submitDecision(winner) {
 }
 
 export function fetchPrompt () {
-  const request = axios.get(`${ROOT_URL}getStatsForObject`);
+  const request = axios.get(`${ROOT_URL}getRankList`);
 
   return {
     type: FETCH_PROMPT,

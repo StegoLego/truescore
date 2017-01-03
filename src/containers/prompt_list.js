@@ -14,10 +14,10 @@ class PromptList extends Component {
     return this.props.prompt.map(data => {
       return (
         <StatsListItem
-          prompt={data.promptHistory[0]}
-          wins={5}
-          losses={2}
-          key={data._id} />
+          prompt="Shortest Hair"
+          name={data[0]}
+          average={(data[1]*100)}
+          key={data[0]} />
       );
     });
   }
