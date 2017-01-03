@@ -7,7 +7,7 @@ const StatsListItem = (props) => {
       <dt>{props.prompt}</dt>
       <dd className="percentage">
         <span className="text">
-          {props.wins / (props.wins + props.losses)}
+          {props.average}
         </span>
       </dd>
     </dl>
