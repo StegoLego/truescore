@@ -32,7 +32,7 @@ router.get('/allChoices', controller.allChoices.get);
 //        Stats        //
 /////////////////////////
 
-router.get('/stats/:promptId', stats.statsByPrompt);
+router.get('/stats/prompt/:promptId', stats.statsByPrompt);
 
 
 
@@ -54,6 +54,8 @@ router.get('/comparison/all', comparison.getAll);
 
 // to drop all tables, and re-initate them
 router.get('/dangerwipedatabase', setup.dangerwipedatabase.get);
+
+router.get('/seed/winloss', setup.seedwinloss.get);
 
 router.get('/testroute', setup.testroute.get);
 

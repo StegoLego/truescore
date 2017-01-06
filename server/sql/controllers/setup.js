@@ -2,6 +2,7 @@ const db = require('../db/db_index');
 const animals = require('../../../docs/db_stubs/animals');
 const seedDatabase = require('./seedDatabase');
 const stats = require('./stats');
+const seedWinLoss = require('../../../docs/tests/winloss');
 
 
 module.exports = {
@@ -20,18 +21,18 @@ module.exports = {
     }
   },
 
+  seedwinloss: {
+
+    get: function(req, res){
+      seedWinLoss();
+      res.send('comparisons seeded');
+    }
+  },
+
   testroute: {
     get: function(req, res){
-
-
-      // db.Comparison.count({where:{ winnerId: 1}})
-      // .then(wins => {
-      //   db.Comparison.count({where:{ loserId: 1}})
-      //   .then(losses => res.send({wins, losses}));
-      // });
-      res.send(stats.winsAndLosses());
-
-
+      
+      res.send('testing route!');
 
     }
   

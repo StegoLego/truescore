@@ -32,13 +32,17 @@ var results = [
   {
     "promptid":  1,
     "winner": 3,
-    "loser": 1
+    "loser": 2
   }
 ];
 
-results.forEach(result=>{
-  axios.post(`${ROOT_URL}api/comparison`, result);
-});
+function test (){
+  results.forEach(result=>{
+    axios.post(`${ROOT_URL}api/comparison`, result);
+  });
+}
+
+module.exports = test;
 
 
 
