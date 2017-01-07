@@ -9,7 +9,7 @@ if(process.env.CLEARDB_DATABASE_URL){
 
 } else {
 
-   var db = new Sequelize('truescore', 'root', 'test', {
+   var db = new Sequelize('truescore', 'root', 'abc', {
       dialect: 'mysql',
       port: 3306,
       host: 'localhost'
@@ -93,8 +93,6 @@ Comparison.belongsTo(Choice, {as: 'loser'});
 //Choice.hasMany(Comparison, {as: 'loser'});
 
 
-
-
 /////////////////////
 //  Create Tables  //
 /////////////////////
@@ -104,8 +102,6 @@ User.sync();
 Choice.sync();
 Prompt.sync();
 Comparison.sync();
-
-
 
 
 
