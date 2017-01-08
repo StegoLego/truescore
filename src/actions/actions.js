@@ -4,7 +4,7 @@ import { store } from '../index';
 const protocol = window.location.protocol;
 const host = window.location.host;
 const pathname = window.location.pathname;
-export const ROOT_URL = `${protocol}//${host}/api/`;
+export const ROOT_URL = `${protocol}//${host}/api/`; //http or https, host could be localhost or deployment
 
 
 export const FETCH_COMPARISON = 'FETCH_COMPARISON';
@@ -40,7 +40,7 @@ export function fetchUsers () {
 export function submitDecision(winnerId) {
 
   const currentComparison = store.getState().comparison;
- 
+
   const [left, right] = currentComparison.choices;
   const loserId = left.id === winnerId ? right.id  : left.id;
   const promptId = store.getState().prompt.id;
