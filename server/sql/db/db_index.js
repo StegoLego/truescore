@@ -32,27 +32,27 @@ const User = db.define('user', {
   fbId: {
     type: Sequelize.STRING,
     unique: true
-  },
-  token: {
-    type: Sequelize.STRING,
-    unique: true
-  },
-  name: {
-    type: Sequelize.STRING,
-    unique: true
-  },
-  minifbPhoto: {
-    type: Sequelize.STRING,
-    unique: true
-  },
-  bigfbPhoto: {
-    type: Sequelize.STRING,
-    unique: true
-  },
-  email: {
-    type: Sequelize.STRING,
-    unique: true
   }
+  // token: {
+  //   type: Sequelize.STRING,
+  //   unique: true
+  // },
+  // name: {
+  //   type: Sequelize.STRING,
+  //   unique: true
+  // },
+  // minifbPhoto: {
+  //   type: Sequelize.STRING,
+  //   unique: true
+  // },
+  // bigfbPhoto: {
+  //   type: Sequelize.STRING,
+  //   unique: true
+  // },
+  // email: {
+  //   type: Sequelize.STRING,
+  //   unique: true
+  // }
 });
 
 const Choice = db.define('choice', {

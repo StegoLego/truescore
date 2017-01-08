@@ -2,11 +2,13 @@ var db = require('../db/db_index');
 
 module.exports = {
   get: function(req, res){
+
+    console.log("request hopefully has user on it", req);
     const promptId = req.params.id || 1;
     //how many choices in db?
     db.Choice.count().
     then(count => {
-    
+
     //get 2 random, but different ids
     const choice1Id = randomId(count);
     let choice2Id = randomId(count);

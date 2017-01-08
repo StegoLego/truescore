@@ -19,7 +19,6 @@ app.get('/auth/facebook/callback',
 
 //check if logged in
   function isLoggedIn (req, res, next){
-
   // if user is authenticated, sounds good and move to next step
   if ( req.isAuthenticated() ) {
     return next();
