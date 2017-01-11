@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { updatePrompt } from '../actions/actions';
+
 //import { fetchPrompts } from '../actions/actions';
 
 class PromptTile extends Component {
 
-  render() {
+  static contextTypes = {
+    router: PropTypes.object
+  }
 
+  tileClick(){
+    this.props.updatePrompt(this.props.prompt);
+    this.context.router.push('/game')
+  }
+
+
+  render() {
     return (
         <div className ="prompt-tile"
-        onClick={() => this.props.updatePrompt(this.props.prompt)}>
+        onClick={ () => this.tileClick()}>
         	<img src={this.props.tileImage}/>
           <h3>{this.props.text}</h3>
         </div>

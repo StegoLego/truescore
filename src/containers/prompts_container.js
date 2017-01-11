@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPrompts } from '../actions/actions';
+import { fetchPrompts, fetchUserData } from '../actions/actions';
 
 import PromptTile from './prompt_tile';
+import StatsByPrompt from './stats_by_prompt';
 
 class PromptContainer extends  Component {
 
   componentWillMount() {
     this.props.fetchPrompts();
+    this.props.fetchUserData();
   }
 
 	renderPrompts () {
-    console.log('PROMPT CONTAINER OUTSIDE: ', this.props);
 		return this.props.prompts.map((prompt) => {
-      console.log('MAPPING PROMPT: ', prompt);
 			return(
 				<PromptTile
 				prompt={prompt}
@@ -25,6 +25,7 @@ class PromptContainer extends  Component {
 
 
 	render () {
+
     return (
       	<div className="prompt-container">
         	{this.renderPrompts.bind(this)()}
@@ -39,4 +40,4 @@ function mapStateToProps (state) {
 }
 
 
-export default connect(mapStateToProps, { fetchPrompts })(PromptContainer);
+export default connect(mapStateToProps, { fetchPrompts, fetchUserData })(PromptContainer); // this makes actions available as props of the component

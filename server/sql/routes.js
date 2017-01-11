@@ -3,6 +3,28 @@ const controller = require('./controllers/controllers');
 const setup = require('./controllers/setup');
 const comparison = require('./controllers/comparison');
 const stats = require('./controllers/stats');
+var colors = require('colors');
+
+
+var FacebookStrategy = require('passport-facebook').Strategy;
+const passport = require ('passport');
+const auth = require('./authRoutes.js');
+
+
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.user) {
+      console.log("User exists which is pretty sweet".rainbow);
+        return next();
+      }
+
+    console.log("User shoudl be getting kicked out!!!!!".rainbow);
+    // if they aren't redirect them to the home page
+    // res.sendfile('./dist/index.html');
+    res.redirect('/#/login');
+}
 
 /////////////////////
 //     Prompts     //
@@ -40,9 +62,9 @@ router.get('/stats/prompt/:promptId', stats.statsByPrompt);
 //     Comparisons     //
 /////////////////////////
 
-router.post('/comparison', comparison.post);
+router.post('/comparison',comparison.post);
 
-router.get('/comparison', comparison.get);
+router.get('/comparison/:id', comparison.get);
 
 router.get('/comparison/all', comparison.getAll);
 

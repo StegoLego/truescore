@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { store } from '../index';
 
-export const ROOT_URL = 'http://localhost:8080/api/';
+const protocol = window.location.protocol;
+const host = window.location.host;
+const pathname = window.location.pathname;
+export const ROOT_URL = `${protocol}//${host}/api/`; //http or https, host could be localhost or deployment
+
 
 export const FETCH_COMPARISON = 'FETCH_COMPARISON';
 export const FETCH_USERS = 'FETCH_USERS';
@@ -9,11 +13,15 @@ export const SUBMIT_DECISION = 'SUBMIT_DECISION';
 export const FETCH_PROMPT = 'FETCH_PROMPT';
 export const FETCH_PROMPTS = 'FETCH_PROMPTS';
 export const UPDATE_PROMPT = 'UPDATE_PROMPT';
-
+export const FETCH_STATS_BY_PROMPT = 'FETCH_STATS_BY_PROMPT';
+export const FETCH_USER_DATA = 'FETCH_USER_DATA'; // unique id's for actions for reducers to listen to
 
 
 export function fetchComparison () {
-  const request = axios.get(`${ROOT_URL}nextBattlePairs`);
+
+  const promptId = store.getState().prompt.id;
+
+  const request = axios.get(`${ROOT_URL}comparison/${promptId}`);
 
   return {
     type: FETCH_COMPARISON,
@@ -24,7 +32,7 @@ export function fetchComparison () {
 export function fetchUsers () {
 
   /// WARNING CHECK ROUTE WITH BARTEK!!
-  const request = axios.get(`${ROOT_URL}getAllObjectsOfComparison`);
+  const request = axios.get(`${ROOT_URL}allChoices`);
 
   return {
     type: FETCH_USERS,
@@ -34,17 +42,17 @@ export function fetchUsers () {
 
 
 
-export function submitDecision(winner) {
+export function submitDecision(winnerId) {
 
   const currentComparison = store.getState().comparison;
- 
+
   const [left, right] = currentComparison.choices;
-  const loser = left.name === winner ? right.name  : left.name;
-  const prompt = currentComparison.prompt;
+  const loserId = left.id === winnerId ? right.id  : left.id;
+  const promptId = store.getState().prompt.id;
 
-  const result = {winner, loser, prompt};
+  const result = {winnerId, loserId, promptId};
 
-  const request = axios.post(`${ROOT_URL}updateDBwithResultOfBattle`, result);
+  const request = axios.post(`${ROOT_URL}comparison`, result);
   return {
     type: SUBMIT_DECISION,
     payload: request
@@ -62,6 +70,7 @@ export function fetchPrompt () {
 }
 
 export function fetchPrompts() {
+
   const request = axios.get(`${ROOT_URL}prompts`);
 
   return{
@@ -76,4 +85,29 @@ export function updatePrompt(prompt) {
     type: UPDATE_PROMPT,
     payload: prompt
   }
+}
+
+export function fetchStatsByPrompt() {
+
+  const promptId = store.getState().prompt.id;
+
+  const request = axios.get(`${ROOT_URL}stats/prompt/${promptId}`);
+
+  return{
+    type: FETCH_STATS_BY_PROMPT,
+    payload: request
+  }
+
+}
+
+
+export function fetchUserData() { // actions return objects
+  console.log("trying to fire get user data");
+  const request = axios.get(`${ROOT_URL}currentUserData`);
+
+  return{
+    type: FETCH_USER_DATA,
+    payload: request
+  }
+
 }

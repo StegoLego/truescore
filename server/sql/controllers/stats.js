@@ -50,17 +50,10 @@ module.exports = {
             res.send(people);
           }
         });
-
-
-
-
       
       })
 
-
-
     });
     
-
   }
 };

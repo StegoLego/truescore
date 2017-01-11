@@ -3,7 +3,7 @@ import React from 'react';
 const Results = (props) => {
   console.log('RESULTS PROPS: ', props);
   const overlay = {
-    color: 'white',
+    color: 'black',
     zIndex: 2,
     underlayColor: 'transparent'
   }

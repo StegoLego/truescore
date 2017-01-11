@@ -8,15 +8,15 @@ class Choice extends Component {
     super(props);
     this.state = {showResults: false}
   }
-  submit(winner){
+  submit(winnerId){
     console.log('PROPS??: ', this.props);
-    this.props.submitDecision(winner);
-    setTimeout(this.props.fetchComparison, 1000);
-  }
-
-  onDecided () {
+    this.props.submitDecision(winnerId);
     this.setState({ showResults: true });
-  };
+    setTimeout(() => {
+      this.setState({showResults: false});
+      this.props.fetchComparison();
+    }, 700);
+  }
 
   renderUserStat () {
       if(this.props.name) {
@@ -38,8 +38,7 @@ class Choice extends Component {
         <h3>{this.props.name}</h3>
         <img
         onClick={() => {
-          this.submit.bind(this)(this.props.name);
-          this.onDecided();
+          this.submit.bind(this)(this.props.id);
         }}
         src={this.props.imageUrl} />
         {this.state.showResults ? this.renderUserStat.bind(this)() : null}

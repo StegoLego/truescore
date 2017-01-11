@@ -1,1 +1,1 @@
-web: node server/sql/app.js
+web: node server/sql/server.js

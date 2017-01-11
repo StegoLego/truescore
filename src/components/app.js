@@ -13,8 +13,8 @@ export default class App extends Component {
     // Render test for UserStats; it must be visited from a nav link later
     return (
       <div id="app">
-        <Navigation/>
-       {this.props.children}
+        <div>{this.props.navigation}</div>
+        <div>{this.props.main}</div>
       </div>
     );
   }

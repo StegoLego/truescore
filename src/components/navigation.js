@@ -10,9 +10,6 @@ export default class Navigation extends React.Component {
           <Nav className="float-right">
             <NavbarBrand href="/">Truescore</NavbarBrand>
             <NavItem>
-              <NavLink href="#/">Login</NavLink>
-            </NavItem>
-            <NavItem>
             </NavItem>
               <NavLink href="#/home">Home</NavLink>
             <NavItem>
@@ -23,6 +20,9 @@ export default class Navigation extends React.Component {
             </NavItem>
             <NavItem>
               <NavLink href="/logout">Logout</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#/topFive">Leaders</NavLink>
             </NavItem>
           </Nav>
         </Navbar>

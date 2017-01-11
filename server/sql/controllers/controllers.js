@@ -16,7 +16,7 @@ module.exports = {
         .then(function(prompt) {
           res.send(prompt);
         });
-        
+
       } else { // if no prompt id
 
         db.Prompt.findAll()

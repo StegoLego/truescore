@@ -17,7 +17,6 @@ const cookieParser = require('cookie-parser'); //reads cookies
 const session = require('express-session');
 
 app.use(cookieParser());
-app.use(cookieParser());
 app.use(parser());
 
 // required for passport
@@ -25,7 +24,7 @@ app.use(session( {secret: 'heyyyy'})); // session secret?
 app.use(passport.initialize()); // ??
 app.use(passport.session()); // persistent session login
 
-require('./authRoutes.js')(app, passport); // what does this do?
+require('./authRoutes.js')(app, passport);
 require('../config/passport.js')(passport);
 
 // set port to listen on

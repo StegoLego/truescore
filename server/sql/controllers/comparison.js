@@ -1,12 +1,23 @@
 var db = require('../db/db_index');
+var colors = require('colors');
 
 module.exports = {
   get: function(req, res){
+
+    if(req.user) {
+
+      console.log(`Logged in as FBID, ${req.user.dataValues.fbId}`.underline.green);
+      console.log(`Logged in as FBID, ${req.user.dataValues.fbId}`.rainbow);
+    } else {
+      console.log("user is not logged in".underline.red);
+    }
+
+
     const promptId = req.params.id || 1;
     //how many choices in db?
     db.Choice.count().
     then(count => {
-    
+
     //get 2 random, but different ids
     const choice1Id = randomId(count);
     let choice2Id = randomId(count);
@@ -18,14 +29,19 @@ module.exports = {
     // get choices data from db
     db.Choice.findAll( {where: {id: [choice1Id, choice2Id] } } )
     .then(([choiceA, choiceB]) => {
-    
-      console.log("ChoiceA is ", choiceA);
 
       db.Comparison.count({where: {
         winnerId: choiceA.id,
         promptId
       }})
       .then((wins)=> {
+
+
+        console.log("ChoiceA Name: ", choiceA.name);
+        console.log("ChoiceA wins: ", wins);
+
+
+
         choiceA.dataValues.wins = wins; //set Choice A wins
       });
 
@@ -77,5 +93,6 @@ module.exports = {
 
 
 function randomId (itemsInSet){
-  return Math.ceil( Math.random() * itemsInSet );
+  const randId = Math.ceil( Math.random() * itemsInSet );
+  return process.env.PROD ? (randId - 1) * 10 + 2 : randId ;
 }

@@ -11,11 +11,20 @@ class UsersList extends Component {
   renderUsers () {
     return this.props.users.map(user => {
       const picSize = {
-        height: '60px',
-        width: '60px'
+        height: '45px',
+        width: '60px',
+        margin: '1em auto',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        'WebkitBorderRadius': '99em',
+        'MozBorderRadius': '99em',
+        borderRadius: '99em',
+        border: '3px solid #eee',
+        boxShadow: '0 3px 2px rgba(0, 0, 0, 0.3)' 
       };
       return (
-          <img key={user.name} style={picSize} src={user.imageUrl} />
+          <img className="network-images" key={user.name} style={picSize} src={user.imageUrl} />
         )
     });
   }
