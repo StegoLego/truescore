@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { updatePrompt } from '../actions/actions';
 
-//import { fetchPrompts } from '../actions/actions';
-
 class PromptTile extends Component {
 
   static contextTypes = {
@@ -22,7 +20,7 @@ class PromptTile extends Component {
     return (
 
         <li className ="list-group-item"
-        onClick={ () => this.tileClick()}>
+        onClick={ () => this.tileClick() }>
           <div className="media-left">
             <img className="media-left" src={this.props.tileImage}/>
           </div>

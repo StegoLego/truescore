@@ -8,6 +8,7 @@ import StatsByPromptReducer from './stats_by_prompt_reducer.js';
 import CurrentUserReducer from './current_user_reducer.js';
 import allStatsReducer from './all_stats_reducer';
 
+
 const rootReducer = combineReducers({
   comparison: ComparisonReducer,
   users: UsersReducer,

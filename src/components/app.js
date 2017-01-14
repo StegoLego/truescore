@@ -8,9 +8,7 @@ export default class App extends Component {
     super(props);
   }
 
-
   render() {
-    // Render test for UserStats; it must be visited from a nav link later
     return (
       <div id="app">
         <div>{this.props.navigation}</div>

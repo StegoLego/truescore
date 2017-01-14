@@ -7,14 +7,14 @@ export default class Navigation extends React.Component {
   render() {
     return (
 
-      
+
       <div className="navigation">
-        <Navbar id="nav"color="faded" light >
+        <Navbar className="navigation-style" color="faded" light >
           <Nav className="float-right">
             <NavbarBrand href="/">Truescore</NavbarBrand>
             <NavItem>
               <NavLink href="#/home">Home</NavLink>
-            </NavItem> 
+            </NavItem>
             <NavItem>
               <NavLink href="#/game">Play</NavLink>
             </NavItem>

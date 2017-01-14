@@ -7,7 +7,6 @@ const host = window.location.host;
 const pathname = window.location.pathname;
 export const ROOT_URL = `${protocol}//${host}/api/`; //http or https, host could be localhost or deployment
 
-
 export const FETCH_COMPARISON = 'FETCH_COMPARISON';
 export const FETCH_USERS = 'FETCH_USERS';
 export const SUBMIT_DECISION = 'SUBMIT_DECISION';
@@ -17,7 +16,6 @@ export const UPDATE_PROMPT = 'UPDATE_PROMPT';
 export const FETCH_STATS_BY_PROMPT = 'FETCH_STATS_BY_PROMPT';
 export const FETCH_USER_DATA = 'FETCH_USER_DATA'; // unique id's for actions for reducers to listen to
 export const FETCH_STATS_BY_PROMPT_ID = 'FETCH_STATS_BY_PROMPT_ID';
-
 
 export function fetchComparison () {
 
@@ -35,7 +33,6 @@ export const throttledFetchComparison = _.throttle(fetchComparison, 1000);
 
 export function fetchUsers () {
 
-  /// WARNING CHECK ROUTE WITH BARTEK!!
   const request = axios.get(`${ROOT_URL}allChoices`);
 
   return {
@@ -116,5 +113,4 @@ export function fetchUserData() { // actions return objects
     type: FETCH_USER_DATA,
     payload: request
   }
-
 }

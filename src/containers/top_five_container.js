@@ -21,7 +21,7 @@ class TopFiveTilesContainer extends  Component {
           return (<div key={prompt.id}>Loading...</div>)
         } else {
           return (
-            <TopFive 
+            <TopFive
               key={prompt.id}
               prompt={prompt}
               arrayOfUserObjects={this.props.allStats[prompt.id]}

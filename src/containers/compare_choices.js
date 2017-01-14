@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchComparison } from '../actions/actions.js';
 
-
 import Choice from './choice.js'
 
 class CompareChoices extends Component {
@@ -29,9 +28,9 @@ class CompareChoices extends Component {
 
   render () {
     return (
-      <div id="gamecontainer"className="game-container">
-        <h3 id= "prompt"className="game-info">{this.props.prompt.text ? this.props.prompt.text : 'Loading...'}</h3>
-        <div id="choices"className="game-comparison">
+      <div className="game-container">
+        <h3 className="game-info">{this.props.prompt.text ? this.props.prompt.text : 'Loading...'}</h3>
+        <div className="game-comparison">
           {this.renderChoices.bind(this)()}
         </div>
       </div>

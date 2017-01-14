@@ -23,7 +23,7 @@ class UsersList extends Component {
         'MozBorderRadius': '99em',
         borderRadius: '99em',
         border: '3px solid #eee',
-        boxShadow: '0 3px 2px rgba(0, 0, 0, 0.3)' 
+        boxShadow: '0 3px 2px rgba(0, 0, 0, 0.3)'
       };
       return (
           <img className="network-images" key={user.name} style={picSize} src={user.imageUrl} />

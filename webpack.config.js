@@ -1,4 +1,5 @@
 module.exports = {
+  devtool: 'source-map',
   entry: [
     './src/index.js'
   ],
@@ -14,12 +15,13 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
-    },
-  ]
-
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
+    }],
+    rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
+    ]
   },
   devServer: {
     historyApiFallback: true,

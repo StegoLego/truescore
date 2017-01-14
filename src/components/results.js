@@ -1,3 +1,5 @@
+//not used
+
 import React from 'react';
 
 const Results = (props) => {
@@ -8,7 +10,7 @@ const Results = (props) => {
     underlayColor: 'transparent'
   }
   return (
-    <h3 id="results" style={overlay}>
+    <h3 className="results" style={overlay}>
         {Math.floor(props.average) + '% Win Rate'}
     </h3>
   );
