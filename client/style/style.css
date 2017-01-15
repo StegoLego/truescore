@@ -9,23 +9,6 @@ body {
   background-color: black;
 }
 
- /*This block is used on the User_Stats component
-    which styles a graph based on percentage*/
-dl {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  background-color: white;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  max-width: 650px;
-  position: relative;
-  padding: 20px;
-}
-
-
 /*-----General ----- */
 .navigation-style{
   border: 1px solid lightgrey;
@@ -33,7 +16,7 @@ dl {
 }
 
 nav.navigation-style.navbar.navbar-light.bg-faded {
-  background-color: #FFC107;
+  background-color: #fac960;
 }
 
 li.list-group-item {
@@ -70,6 +53,10 @@ li.list-group-item {
 .media-heading{
   margin-left: 20px;
   font-size: 1.25em;
+}
+
+@media.container {
+
 }
 
 .game-info{
@@ -175,7 +162,7 @@ img.mini-prompt-tile {
 }
 
 .list-group-item:hover {
-  background-color: #00BCD4;
+  background-color: #B3E5FC;
 }
 
 .list-group-item img {
@@ -197,6 +184,9 @@ sup {
 
 
 /*-----Stats page----- */
+
+ /*This block is used on the User_Stats component
+    which styles a graph based on percentage*/
 
 dl {
   display: -webkit-box;
@@ -284,8 +274,7 @@ dt {
   border-radius: 5px;
 }
 .jumbotron.jumbotron-fluid {
-  background-color: #FFC107;
-  border-radius: 8px;
+  background-color: #fac960;
 }
 
 .login-container {
@@ -295,6 +284,13 @@ dt {
   border: 1px solid rgb(231, 231, 231);
   padding: 20px;
 }
+
+/*@media (min-width: 1200px) {
+  .login-container.container {
+    width: 100%;
+    max-width: 100%;
+  }
+}*/
 
 .selling-points {
   font-size: 1.5em;
