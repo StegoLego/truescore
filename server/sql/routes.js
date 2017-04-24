@@ -77,10 +77,11 @@ router.get('/allcomparisons', comparison.getAll );
 //     Dev/Testing     //
 /////////////////////////
 
-// to drop all tables, and re-initate them
-router.get('/dangerwipedatabase', setup.dangerwipedatabase.get);
+// to drop all tables, and re-initate them (DEPRECATED)
 
-router.get('/seed/winloss', setup.seedwinloss.get);
+// router.get('/dangerwipedatabase', setup.dangerwipedatabase.get);
+
+// router.get('/seed/winloss', setup.seedwinloss.get);
 
 router.get('/testroute', setup.testroute.get);
 
