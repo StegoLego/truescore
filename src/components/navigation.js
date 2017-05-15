@@ -29,6 +29,9 @@ export default class Navigation extends React.Component {
               <NavLink href="#/stats">Stats</NavLink>
             </NavItem>
             <NavItem>
+              <NavLink href="#/topfive">Awards</NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href="/logout">Logout</NavLink>
             </NavItem>
           </Nav>
